@@ -63,7 +63,7 @@ exports.registerAdmin = (req, res) => {
                   "success_msg",
                   "You are now registered and can log in"
                 );
-                res.redirect("/admins/login");
+                res.redirect("/admin/login");
               })
               .catch(err => console.log(err));
           });
@@ -76,8 +76,8 @@ exports.registerAdmin = (req, res) => {
 //Handle post request to Login a user
 exports.loginAdmin = (req, res, next) => {
   passport.authenticate("admin", {
-    successRedirect: "/admins/dashboard",
-    failureRedirect: "/admins/login",
+    successRedirect: "/admin/dashboard",
+    failureRedirect: "/admin/login",
     failureFlash: true
   })(req, res, next);
 };
@@ -86,5 +86,5 @@ exports.loginAdmin = (req, res, next) => {
 exports.logout = (req, res) => {
   req.logout();
   req.flash("success_msg", "You are logged out");
-  res.redirect("/admins/login");
+  res.redirect("/admin/login");
 };
