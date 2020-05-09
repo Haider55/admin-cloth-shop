@@ -152,77 +152,77 @@
 					  aria-label="Close"
 					>
 					  <span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<% } %>
-				<table class="table table-striped table-hover table-bordered">
-				  <thead>
-					<tr>
-					  <th>Name<i class="fa fa-sort"></i></th>
-					  <th>email</i></th>
-					  <th>password</i></th>
-					  <th>city</i></th>
-					  <th>mobile</th>
-					  <th>Actions</th>
-					</tr>
-				  </thead>
-				  <tbody>
-					<% if(typeof employees != 'undefined'){ %> <%
-					employees.forEach(function(employee) { %>
-					<tr>
-					  
-					  <td><%= employee.name%></td>
-					  <td><%= employee.email%></td>
-					  <td><%= employee.password%></td>
-					  <td><%= employee.city%></td>
-					  <td><%= employee.mobile%></td>
-					  <td>
-						<a
-						  href="/employee/<%=employee._id%>"
-						  class="view"
-						  title="View"
-						  data-toggle="tooltip"
-						  ><i class="material-icons">&#xE417;</i></a
-						>
-						<a
-						  href="/employee/update/<%=employee._id%>"
-						  class="edit"
-						  title="Edit"
-						  data-toggle="tooltip"
-						  ><i class="material-icons">&#xE254;</i></a
-						>
-						<a
-						  href="/employee/delete/<%=employee._id%>"
-						  class="delete"
-						  title="Delete"
-						  data-toggle="tooltip"
-						  ><i class="material-icons">&#xE872;</i></a
-						>
-					  </td>
-					</tr>
-					<% }); %> <% } %>
-				  </tbody>
-				</table>
-				<div class="clearfix">
-				  <div class="hint-text">Showing <b>10</b> out of <b>15</b> entries</div>
-				  <ul class="pagination">
-					<li class="page-item disabled">
-					  <a href="#"><i class="fa fa-angle-double-left"></i></a>
-					</li>
-					<li class="page-item"><a href="#" class="page-link">1</a></li>
-					<li class="page-item"><a href="#" class="page-link">2</a></li>
-					<li class="page-item active"><a href="#" class="page-link">3</a></li>
-					<li class="page-item"><a href="#" class="page-link">4</a></li>
-					<li class="page-item"><a href="#" class="page-link">5</a></li>
-					<li class="page-item">
-					  <a href="#" class="page-link"
-						><i class="fa fa-angle-double-right"></i
-					  ></a>
-					</li>
-				  </ul>
-				</div>
-			  </div>
-			</div>
+			          </button>
+      </div>
+      <% } %>
+      <table class="table table-striped table-hover table-bordered">
+        <thead>
+          <tr>
+            <th>Name<i class="fa fa-sort"></i></th>
+            <th>email</i></th>
+            <th>password</i></th>
+            <th>city</i></th>
+            <th>mobile</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if(typeof products != 'undefined'){ %> <%
+          Products.forEach(function(product) { %>
+          <tr>
+            
+            <td><%= product.title%></td>
+            <td><%= product.imageURL%></td>
+            <td><%= product.price%></td>
+            <td><%= product.description%></td>
+            
+            <td>
+              <a
+                href="/product/<%=product._id%>"
+                class="view"
+                title="View"
+                data-toggle="tooltip"
+                ><i class="material-icons">&#xE417;</i></a
+              >
+              <a
+                href="/product/update/<%=product._id%>"
+                class="edit"
+                title="Edit"
+                data-toggle="tooltip"
+                ><i class="material-icons">&#xE254;</i></a
+              >
+              <a
+                href="/product/delete/<%=product._id%>"
+                class="delete"
+                title="Delete"
+                data-toggle="tooltip"
+                ><i class="material-icons">&#xE872;</i></a
+              >
+            </td>
+          </tr>
+          <% }); %> <% } %>
+        </tbody>
+      </table>
+      <div class="clearfix">
+        <div class="hint-text">Showing <b>10</b> out of <b>15</b> entries</div>
+        <ul class="pagination">
+          <li class="page-item disabled">
+            <a href="#"><i class="fa fa-angle-double-left"></i></a>
+          </li>
+          <li class="page-item"><a href="#" class="page-link">1</a></li>
+          <li class="page-item"><a href="#" class="page-link">2</a></li>
+          <li class="page-item active"><a href="#" class="page-link">3</a></li>
+          <li class="page-item"><a href="#" class="page-link">4</a></li>
+          <li class="page-item"><a href="#" class="page-link">5</a></li>
+          <li class="page-item">
+            <a href="#" class="page-link"
+              ><i class="fa fa-angle-double-right"></i
+            ></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 <!-- all product code end -->
 									
 					</div>				

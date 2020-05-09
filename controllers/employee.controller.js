@@ -88,6 +88,7 @@ exports.logout = (req, res) => {
   req.flash("success_msg", "You are logged out");
   res.redirect("/");
 };
+
 //create update delete
 
 const pdf = require("html-pdf");

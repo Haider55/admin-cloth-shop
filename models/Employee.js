@@ -22,7 +22,7 @@ const EmployeeSchema = new mongoose.Schema({
     required: true
   },
   mobile: {
-    type: number,
+    type: String,
     required: true
   },
   date: {

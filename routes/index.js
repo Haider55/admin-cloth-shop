@@ -18,6 +18,7 @@ router.get("/admin", forwardAdminAuthenticated, (req, res) => res.render("admin/
 router.get("/admin/login", forwardAdminAuthenticated, (req, res) => res.render("admin/login"));
 router.get("/admin/register", forwardAdminAuthenticated, (req, res) => res.render("admin/register"));
 router.get("/admin/add", forwardAdminAuthenticated, (req, res) => res.render("admin/productAdd"));
+router.get("/admin/employee", forwardAdminAuthenticated, (req, res) => res.render("admin/employeeAdd"));
 router.get("/admin/dashboard", ensureAdminAuthenticated, (req, res) =>
   res.render("admin/dashboard", {
     admin: req.admin
