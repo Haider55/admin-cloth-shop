@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Bootstrap E-commerce Templates</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<!--[if ie]><meta content='IE=8' http-equiv='X-UA-Compatible'/><![endif]-->
+		<!-- bootstrap -->
+		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">      
+		<link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">		
+		<link href="themes/css/bootstrappage.css" rel="stylesheet"/>
+		
+		<!-- global styles -->
+		<link href="themes/css/flexslider.css" rel="stylesheet"/>
+		<link href="themes/css/main.css" rel="stylesheet"/>
+
+		<!-- scripts -->
+		<script src="themes/js/jquery-1.7.2.min.js"></script>
+		<script src="bootstrap/js/bootstrap.min.js"></script>				
+		<script src="themes/js/superfish.js"></script>	
+		<script src="themes/js/jquery.scrolltotop.js"></script>
+		<!--[if lt IE 9]>			
+			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+			<script src="js/respond.min.js"></script>
+		<![endif]-->
+	</head>
+    <body>		
+		<div id="top-bar" class="container">
+			<div class="row">
+				
+				<div class="span4">
+					<form method="POST" class="search_form">
+						<input type="text" class="input-block-level search-query" Placeholder="eg. T-sirt">
+					</form>
+				</div>
+				<div class="span8">
+					<div class="account pull-right">
+						<ul class="user-menu">				
+							<li><a href="#">My Account</a></li>
+							<li><a href="cart">Your Cart</a></li>
+							<li><a href="checkout">Checkout</a></li>					
+							<li><a href="register">Register</a></li>		
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="wrapper" class="container">
+			<section class="navbar main-menu">
+				<div class="navbar-inner main-menu">				
+					<a href="welcome" class="logo pull-left"><img src="themes/images//logo.png" class="site_logo" alt=""></a>
+					<nav id="menu" class="pull-right">
+						<ul>
+							<li><a href="/products">Woman</a>					
+								<ul>
+									<li><a href="/products">Lacinia nibh</a></li>									
+									<li><a href="/products">Eget molestie</a></li>
+									<li><a href="/products">Varius purus</a></li>									
+								</ul>
+							</li>															
+							<li><a href="/products">Man</a></li>			
+							<li><a href="/products">Sport</a>
+								<ul>									
+									<li><a href="/products">Gifts and Tech</a></li>
+									<li><a href="/products">Ties and Hats</a></li>
+									<li><a href="/products">Cold Weather</a></li>
+								</ul>
+							</li>							
+							<li><a href="/products">Hangbag</a></li>
+							<li><a href="/products">Best Seller</a></li>
+							<li><a href="/products">Top Seller</a></li>
+						</ul>
+					</nav>
+				</div>
+			</section>			
+			<section class="header_text sub">
+			<img class="pageBanner" src="themes/images/pageBanner.png" alt="New products" >
+				<h4><span>Products add</span></h4>
+			
+			</section>			
+			<section>
+							
+					<div class="span7">					
+						<h4 class="title"><span class="text"><strong>Product All</strong> Form</span></h4>
+                        
+						<!-- all product code start -->
+			<div class="container">
+				<div class="table-wrapper">
+				  <div class="table-title">
+					<div class="row">
+					  <div class="col-sm-8">
+						<h2>
+						  <b>Products </b>List
+						  <a href="/product/add" class="">
+							<i class="fas fa-plus-circle" style="color:green"></i>
+						  </a>
+						</h2>
+					  </div>
+					  <div class="col-sm-4">
+						<div class="search-box">
+						  <i class="material-icons">&#xE8B6;</i>
+						  <input
+							type="text"
+							class="form-control"
+							placeholder="Search&hellip;"
+						  />
+						</div>
+					  </div>
+					</div>
+					<div class="row">
+					  <div class="col-sm-8"></div>
+					  <div class="col-sm-4 ">
+						<h1>
+						  <a href="/product/report/all" class="float-right" target="blank">
+							<i class="fas fa-file-pdf" style="color:rgb(184, 75, 12)"></i>
+						  </a>
+						</h1>
+					  </div>
+					</div>
+				  </div>
+				  <% if(product_add_success_msg != ''){ %>
+				  <div class="alert alert-success alert-dismissible fade show" role="alert">
+					<%= product_add_success_msg %>
+					<button
+					  type="button"
+					  class="close"
+					  data-dismiss="alert"
+					  aria-label="Close"
+					>
+					  <span aria-hidden="true">&times;</span>
+					</button>
+				  </div>
+				  <% } %> <% if(product_del_success_msg != ''){ %>
+				  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+					<%= product_del_success_msg %>
+					<button
+					  type="button"
+					  class="close" data-dismiss="alert"
+					  aria-label="Close"
+					>
+					  <span aria-hidden="true">&times;</span>
+					</button>
+				  </div>
+				  <% } %> <% if(product_update_success_msg != ''){ %>
+				  <div class="alert alert-info alert-dismissible fade show" role="alert">
+					<%= product_update_success_msg %>
+					<button
+					  type="button"
+					  class="close"
+					  data-dismiss="alert"
+					  aria-label="Close"
+					>
+					  <span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<% } %>
+				<table class="table table-striped table-hover table-bordered">
+				  <thead>
+					<tr>
+					  <th>Name<i class="fa fa-sort"></i></th>
+					  <th>email</i></th>
+					  <th>password</i></th>
+					  <th>city</i></th>
+					  <th>mobile</th>
+					  <th>Actions</th>
+					</tr>
+				  </thead>
+				  <tbody>
+					<% if(typeof employees != 'undefined'){ %> <%
+					employees.forEach(function(employee) { %>
+					<tr>
+					  
+					  <td><%= employee.name%></td>
+					  <td><%= employee.email%></td>
+					  <td><%= employee.password%></td>
+					  <td><%= employee.city%></td>
+					  <td><%= employee.mobile%></td>
+					  <td>
+						<a
+						  href="/employee/<%=employee._id%>"
+						  class="view"
+						  title="View"
+						  data-toggle="tooltip"
+						  ><i class="material-icons">&#xE417;</i></a
+						>
+						<a
+						  href="/employee/update/<%=employee._id%>"
+						  class="edit"
+						  title="Edit"
+						  data-toggle="tooltip"
+						  ><i class="material-icons">&#xE254;</i></a
+						>
+						<a
+						  href="/employee/delete/<%=employee._id%>"
+						  class="delete"
+						  title="Delete"
+						  data-toggle="tooltip"
+						  ><i class="material-icons">&#xE872;</i></a
+						>
+					  </td>
+					</tr>
+					<% }); %> <% } %>
+				  </tbody>
+				</table>
+				<div class="clearfix">
+				  <div class="hint-text">Showing <b>10</b> out of <b>15</b> entries</div>
+				  <ul class="pagination">
+					<li class="page-item disabled">
+					  <a href="#"><i class="fa fa-angle-double-left"></i></a>
+					</li>
+					<li class="page-item"><a href="#" class="page-link">1</a></li>
+					<li class="page-item"><a href="#" class="page-link">2</a></li>
+					<li class="page-item active"><a href="#" class="page-link">3</a></li>
+					<li class="page-item"><a href="#" class="page-link">4</a></li>
+					<li class="page-item"><a href="#" class="page-link">5</a></li>
+					<li class="page-item">
+					  <a href="#" class="page-link"
+						><i class="fa fa-angle-double-right"></i
+					  ></a>
+					</li>
+				  </ul>
+				</div>
+			  </div>
+			</div>
+<!-- all product code end -->
+									
+					</div>				
+				</div>
+			</section>			
+			<section id="footer-bar">
+				<div class="row">
+					<div class="span3">
+						<h4>Navigation</h4>
+						<ul class="nav">
+							<li><a href="index">Homepage</a></li>  
+							<li><a href="about">About Us</a></li>
+							<li><a href="contact">Contac Us</a></li>
+							<li><a href="cart">Your Cart</a></li>
+							<li><a href="register">Register</a></li>							
+						</ul>					
+					</div>
+					<div class="span4">
+						<h4>My Account</h4>
+						<ul class="nav">
+							<li><a href="#">My Account</a></li>
+							<li><a href="#">Order History</a></li>
+							<li><a href="#">Wish List</a></li>
+							<li><a href="#">Newsletter</a></li>
+						</ul>
+					</div>
+					<div class="span5">
+						<p class="logo"><img src="themes/images/logo.png" class="site_logo" alt=""></p>
+						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. the  Lorem Ipsum has been the industry's standard dummy text ever since the you.</p>
+						<br/>
+						<span class="social_icons">
+							<a class="facebook" href="#">Facebook</a>
+							<a class="twitter" href="#">Twitter</a>
+							<a class="skype" href="#">Skype</a>
+							<a class="vimeo" href="#">Vimeo</a>
+						</span>
+					</div>					
+				</div>	
+			</section>
+			<section id="copyright">
+				<span>Copyright 2013 bootstrappage template  All right reserved.</span>
+			</section>
+		</div>
+		<script src="themes/js/common.js"></script>
+		<script>
+			$(document).ready(function() {
+				$('#checkout').click(function (e) {
+					document.location.href = "checkout";
+				})
+			});
+		</script>		
+    </body>
+</html>

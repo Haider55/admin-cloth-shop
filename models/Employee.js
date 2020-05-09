@@ -13,6 +13,18 @@ const EmployeeSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  name: {
+    type: String,
+    required: true
+  },
+  city: {
+    type: String,
+    required: true
+  },
+  mobile: {
+    type: number,
+    required: true
+  },
   date: {
     type: Date,
     default: Date.now
