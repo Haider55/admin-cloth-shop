@@ -120,7 +120,7 @@
 					  </div>
 					</div>
 				  </div>
-				  <% if(product_add_success_msg != ''){ %>
+				  <% if(typeof product_add_success_msg !== 'undefined' && product_add_success_msg != ''){ %>
 				  <div class="alert alert-success alert-dismissible fade show" role="alert">
 					<%= product_add_success_msg %>
 					<button
@@ -132,7 +132,7 @@
 					  <span aria-hidden="true">&times;</span>
 					</button>
 				  </div>
-				  <% } %> <% if(product_del_success_msg != ''){ %>
+				  <% } %> <% if(typeof product_del_success_msg !== 'undefined' && product_del_success_msg != ''){ %>
 				  <div class="alert alert-danger alert-dismissible fade show" role="alert">
 					<%= product_del_success_msg %>
 					<button
@@ -143,7 +143,7 @@
 					  <span aria-hidden="true">&times;</span>
 					</button>
 				  </div>
-				  <% } %> <% if(product_update_success_msg != ''){ %>
+				  <% } %> <% if(typeof product_update_success_msg !== 'undefined' && product_update_success_msg != ''){ %>
 				  <div class="alert alert-info alert-dismissible fade show" role="alert">
 					<%= product_update_success_msg %>
 					<button
@@ -159,6 +159,7 @@
       <table class="table table-striped table-hover table-bordered">
         <thead>
           <tr>
+            <th>id</th>
             <th>Title<i class="fa fa-sort"></i></th>
             <th>imageURL</i></th>
             <th>price</i></th>
@@ -172,6 +173,7 @@
           products.forEach(function(product) { %>
           <tr>
             
+            <td><%= product._id%></td>
             <td><%= product.title%></td>
             <td><%= product.imageURL%></td>
             <td><%= product.price%></td>
