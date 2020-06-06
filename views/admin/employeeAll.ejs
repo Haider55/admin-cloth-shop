@@ -5,7 +5,7 @@
           <div class="col-sm-8">
             <h2>
               <b>Employees </b>List
-              <a href="/employee/add" class="">
+              <a href="/employees/add" class="">
                 <i class="fas fa-plus-circle" style="color:green"></i>
               </a>
             </h2>
@@ -25,14 +25,14 @@
           <div class="col-sm-8"></div>
           <div class="col-sm-4 ">
             <h1>
-              <a href="/employee/report/all" class="float-right" target="blank">
+              <a href="/employees/report/all" class="float-right" target="blank">
                 <i class="fas fa-file-pdf" style="color:rgb(184, 75, 12)"></i>
               </a>
             </h1>
           </div>
         </div>
       </div>
-      <% if(employee_add_success_msg != ''){ %>
+      <% if(typeof employee_add_success_msg !== 'undefined' && employee_add_success_msg != ''){ %>
       <div class="alert alert-success alert-dismissible fade show" role="alert">
         <%= employee_add_success_msg %>
         <button
@@ -44,7 +44,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <% } %> <% if(employee_del_success_msg != ''){ %>
+      <% } %> <% if(typeof employee_del_success_msg !== 'undefined' && employee_del_success_msg != ''){ %>
       <div class="alert alert-danger alert-dismissible fade show" role="alert">
         <%= employee_del_success_msg %>
         <button
@@ -56,7 +56,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <% } %> <% if(employee_update_success_msg != ''){ %>
+      <% } %> <% if(typeof employee_update_success_msg !== 'undefined' && employee_update_success_msg != ''){ %>
       <div class="alert alert-info alert-dismissible fade show" role="alert">
         <%= employee_update_success_msg %>
         <button
@@ -92,21 +92,21 @@
             <td><%= employee.mobile%></td>
             <td>
               <a
-                href="/employee/<%=employee._id%>"
+                href="/employees/<%=employee._id%>"
                 class="view"
                 title="View"
                 data-toggle="tooltip"
                 ><i class="material-icons">&#xE417;</i></a
               >
               <a
-                href="/employee/update/<%=employee._id%>"
+                href="/employees/update/<%=employee._id%>"
                 class="edit"
                 title="Edit"
                 data-toggle="tooltip"
                 ><i class="material-icons">&#xE254;</i></a
               >
               <a
-                href="/employee/delete/<%=employee._id%>"
+                href="/employees/delete/<%=employee._id%>"
                 class="delete"
                 title="Delete"
                 data-toggle="tooltip"

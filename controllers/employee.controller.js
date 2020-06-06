@@ -114,9 +114,9 @@ exports.update = async function(req, res) {
 
 exports.create = (req, res) => {
   let employee = new Employee({
-    name: req.body.email,
-    name: req.body.password,
     name: req.body.name,
+    password: req.body.password,
+    email: req.body.email,
     city: req.body.city,
     mobile: req.body.mobile
   });
@@ -128,7 +128,7 @@ exports.create = (req, res) => {
         .json({ err: "Oops something went wrong! Cannont insert employee .." });
     }
     req.flash("employee_add_success_msg", "New  employee added successfully");
-    res.redirect("/employee/all");
+    res.redirect("/employees/all");
   });
 };
 
@@ -170,7 +170,7 @@ exports.updateEmployee = async (req, res) => {
       err: `Oops something went wrong! Cannont update employee with ${req.params.id}.`
     });
   req.flash("employee_update_success_msg", "employee updated successfully");
-  res.redirect("/employee/all");
+  res.redirect("/employees/all");
 };
 
 exports.delete = async (req, res) => {
@@ -180,7 +180,7 @@ exports.delete = async (req, res) => {
       err: `Oops something went wrong! Cannont delete Employee with ${req.params.id}.`
     });
   req.flash("employee_del_success_msg", "Employee has been deleted successfully");
-  res.redirect("/employee/all");
+  res.redirect("/employees/all");
 };
 
 exports.allReport = (req, res) => {
