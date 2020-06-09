@@ -1,8 +1,28 @@
 const Product = require("../models/product.model");
 const pdf = require("html-pdf");
 const fs = require("fs");
+const path = require("path");
+const multer = require("multer");
 const options = { format: "A4" };
 
+const IMAGE_DIR = path.join(__dirname, 'image-uploads');
+if (!fs.existsSync(IMAGE_DIR)){
+  try {
+    fs.mkdirSync(IMAGE_DIR);
+  } catch (error) {
+    // blank
+  }
+}
+
+var upload = multer({ storage: multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, IMAGE_DIR)
+    },
+    filename: function (req, file, cb) {
+      cb(null, file.fieldname + '-' + Date.now())
+    }
+  })
+}).single('avatar');
 // test function
 exports.test = function A(req, res) {
   res.render("test");
@@ -21,23 +41,40 @@ exports.update = async function(req, res) {
 };
 
 exports.create = (req, res) => {
-  let product = new Product({
-    
-    title: req.body.title,
-    imageURL: req.body.imageURL,
-    price: req.body.price,
-    description: req.body.description
+
+  upload(req, res, function (err) {
+    if (err instanceof multer.MulterError) {
+      return req.status(500).send('Something went wrong while uploading image!');
+    } else if (err) {
+      // An unknown error occurred when uploading.
+      return req.status(500).send('Something went wrong while uploading image!');
+    }
+
+    const filename = (req.file && req.file.filename) ? req.file.filename : '';
+
+    //////////////////////////////
+    // Create record in DB
+    //////////////////////////////
+    let product = new Product({
+      title: req.body.title,
+      imageURL: filename,
+      price: req.body.price,
+      description: req.body.description
+    });
+
+    product.save(function(err) {
+      if (err) {
+        return res
+          .status(400)
+          .json({ err: "Oops something went wrong! Cannont insert product .." });
+      }
+      req.flash("product_add_success_msg", "New  product added successfully");
+      res.redirect("/product/all");
+    });
+    //////////////////////////////
+
   });
 
-  product.save(function(err) {
-    if (err) {
-      return res
-        .status(400)
-        .json({ err: "Oops something went wrong! Cannont insert product .." });
-    }
-    req.flash("product_add_success_msg", "New  product added successfully");
-    res.redirect("/product/all");
-  });
 };
 
 exports.details = (req, res) => {
@@ -68,25 +105,71 @@ exports.all = (req, res) => {
 };
 
 // Post Update to insert data in database
+// Post Update to insert data in database
 exports.updateProduct = async (req, res) => {
-  let result = await Product.updateOne(
-    { _id: req.params.id },
-    { $set: req.body }
-  );
-  if (!result)
-    return res.status(400).json({
-      err: `Oops something went wrong! Cannont update product with ${req.params.id}.`
-    });
-  req.flash("product_update_success_msg", "product updated successfully");
-  res.redirect("/product/all");
+
+  upload(req, res, async function (err) {
+    if (err instanceof multer.MulterError) {
+      return req.status(500).send('Something went wrong while uploading image!');
+    } else if (err) {
+      // An unknown error occurred when uploading.
+      return req.status(500).send('Something went wrong while uploading image!');
+    }
+
+    const product = await Product.findById(req.params.id);
+
+    const filename = (req.file && req.file.filename) ? req.file.filename : '';
+    if(!!filename) {
+      const oldImageFilename = product.imageURL;
+      req.body.imageURL = filename;
+
+      try {
+        if(!!oldImageFilename && fs.existsSync(path.join(IMAGE_DIR, oldImageFilename))) {
+          fs.unlinkSync(path.join(IMAGE_DIR, oldImageFilename));
+        }
+      } catch(err) {
+        // blank
+      }
+
+    }
+
+    /////////////////////
+    let result = await Product.updateOne(
+      { _id: req.params.id },
+      { $set: req.body }
+    );
+
+    if (!result) {
+      return res.status(400).json({
+        err: `Oops something went wrong! Cannont update product with ${req.params.id}.`
+      });
+    }
+
+    req.flash("product_update_success_msg", "product updated successfully");
+    res.redirect("/product/all");
+    //////////////////////
+
+  });
 };
 
 exports.delete = async (req, res) => {
+  let product = await Product.findById(req.params.id);
   let result = await Product.deleteOne({ _id: req.params.id });
-  if (!result)
+
+  if (!result) {
     return res.status(400).json({
-      err: `Oops something went wrong! Cannont delete product with ${req.params.id}.`
+      err: `Oops something went wrong! Cannot delete product with ${req.params.id}.`
     });
+  }
+
+  try {
+    if(!!product.imageURL && fs.existsSync(path.join(IMAGE_DIR, product.imageURL))) {
+      fs.unlinkSync(path.join(IMAGE_DIR, product.imageURL));
+    }
+  } catch(err) {
+    // blank
+  }
+
   req.flash("product_del_success_msg", "product has been deleted successfully");
   res.redirect("/product/all");
 };
