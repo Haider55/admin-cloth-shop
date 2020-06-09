@@ -23,6 +23,7 @@ var upload = multer({ storage: multer.diskStorage({
     }
   })
 }).single('avatar');
+
 // test function
 exports.test = function A(req, res) {
   res.render("test");

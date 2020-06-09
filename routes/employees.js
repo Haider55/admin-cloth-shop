@@ -30,6 +30,6 @@ router.post("/register", employeeController.registerEmployee);
 router.post("/login", employeeController.loginEmployee);
 
 // Logout
-router.get("/logout", employeeController.logout);
+// router.get("/logout", employeeController.logout);
 
 module.exports = router;

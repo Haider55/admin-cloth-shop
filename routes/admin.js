@@ -14,8 +14,10 @@ router.get("/dashboard", ensureAdminAuthenticated, (req, res) =>
     user: req.user
   })
 );
+
 // Login Page
 router.get("/login", forwardAdminAuthenticated, adminController.login);
+
 // Register Page
 router.get("/register", forwardAdminAuthenticated, adminController.register);
 

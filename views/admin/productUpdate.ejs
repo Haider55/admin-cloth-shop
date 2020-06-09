@@ -84,7 +84,7 @@
 					<div class="span7">					
 						<h4 class="title"><span class="text"><strong>Product Update</strong> Form</span></h4>
                         
-						<form action="/product/update/<%=product._id%>" method="post" class="form-stacked">
+						<form action="/product/update/<%=product._id%>" method="post" class="form-stacked" enctype="multipart/form-data">
 							<fieldset>
 								
 								<div class="control-group">
@@ -97,6 +97,7 @@
 									<label class="control-label">ImageURL:</label>
 									<div class="controls">
 										<img height="100" width="80" src='/images/<%= product.imageURL%>' />
+										<input type="file" name="avatar" />
 										<!-- <input type="text"id="imageURL" name="imageURL" placeholder="Enter your ImageURL" class="input-xlarge"value="<%=typeof product.imageURL != 'undefined'?product.imageURL : ''%>"> -->
 									</div>
                                 </div>
