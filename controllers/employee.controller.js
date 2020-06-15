@@ -11,7 +11,7 @@ exports.register = (req, res) => res.render("register");
 
 //Handle Post Request to add a new employee
 exports.registerEmployee = (req, res) => {
-  const { name, email, password, password2 } = req.body;
+  const { name, email, password, password2, city, mobile } = req.body;
   let errors = [];
 
   if (!name || !email || !password || !password2) {
@@ -32,7 +32,7 @@ exports.registerEmployee = (req, res) => {
       name,
       email,
       password,
-      password2
+      password2, city, mobile
     });
   } else {
     Employee.findOne({ email: email }).then(employee => {
@@ -43,13 +43,13 @@ exports.registerEmployee = (req, res) => {
           name,
           email,
           password,
-          password2
+          password2, city, mobile
         });
       } else {
         const newEmployee = new Employee({
           name,
           email,
-          password
+          password, city, mobile
         });
 
         bcrypt.genSalt(10, (err, salt) => {
@@ -89,7 +89,7 @@ exports.logout = (req, res) => {
   res.redirect("/");
 };
 
-//create update delete
+// create update delete
 
 const pdf = require("html-pdf");
 const fs = require("fs");
