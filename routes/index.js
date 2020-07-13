@@ -13,6 +13,18 @@ const {
 router.get("/", forwardEmployeeAuthenticated, (req, res) => res.render("welcome"));
 router.get("/register", forwardEmployeeAuthenticated, (req, res) => res.render("register"));
 router.get("/login", forwardEmployeeAuthenticated, (req, res) => res.render("login"));
+router.get('/product_detail/:id', forwardEmployeeAuthenticated, (req, res) => {
+  Product.findById(req.params.id, function(err, product) {
+    if (err) {
+      return res.status(400).json({
+        err: `Oops something went wrong! Cannont find product with ${req.params.id}.`
+      });
+    }
+    res.render('product_detail',{
+      product
+    });
+  });
+})
 //admin pages
 router.get("/admin", forwardAdminAuthenticated, (req, res) => res.render("admin/welcome"));
 router.get("/admin/login", forwardAdminAuthenticated, (req, res) => res.render("admin/login"));

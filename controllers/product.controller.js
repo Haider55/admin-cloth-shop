@@ -105,6 +105,52 @@ exports.all = (req, res) => {
   });
 };
 
+//categories
+
+exports.categories = (req, res) => {
+  //search for category from the database
+  Product.find({category: req.params.category}, (err, products) => {
+    if(err){
+      return res
+        .status(400)
+        .json({ err: "Oops something went wrong! Cannot find products." });
+    }
+    if(!products){
+            return res
+        .status(400)
+        .json({ err: "No products on that category." });
+    }
+    res.status(200).render("admin/categories", {products, category: req.params.category})
+  });
+}
+
+// filter for a combination of a category and a subcategory
+exports.subcategories = (req, res) => {
+  Product.find({subcategory: req.params.subcategory}).where('category').equals(req.params.category).exec((err, products) => {
+    if(err || !products){
+      return res.status(400).json({err: 'No products found..'});
+    }
+    res.status(200).render("admin/categories", {products, category: req.params.category, subcategory: req.param.subcategory});
+  })
+  //just a sec
+}
+
+//filter for a specific sub category
+exports.tags = (req, res) => {
+  Product.find({subcategory: req.params.subcategory}, (err, products) => {
+    if(err){
+      return res
+        .status(400)
+        .json({ err: "Oops something went wrong! Cannot find products." });
+    }
+    if(!products){
+            return res
+        .status(400)
+        .json({ err: "No products on that category." });
+    }
+    res.status(200).render("admin/categories", {products, category: req.params.subcategory});
+  })
+}
 // Post Update to insert data in database
 // Post Update to insert data in database
 exports.updateProduct = async (req, res) => {

@@ -3,10 +3,12 @@ const expressLayouts = require("express-ejs-layouts");
 const mongoose = require("mongoose");
 const passport = require("passport");
 const flash = require("connect-flash");
+const path  = require('path')
 const session = require("express-session");
 const bodyParser = require('body-parser')
 const app = express();
-
+const product_clinetRouter = require("./controllers/product-client.controller")
+const cors = require("cors")
 // Passport Config
 require("./config/passport")(passport);
 
@@ -51,12 +53,14 @@ app.use(function(req, res, next) {
   next();
 });
 
+app.use(cors()) 
 // Routes
 app.use("/", require("./routes/index.js"));
 app.use("/employees", require("./routes/employees.js"));
 app.use("/admins", require("./routes/admin.js"));
 app.use("/product", require("./routes/product.rout.js"));
+app.use("/product-view", product_clinetRouter) 
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5010;
 
 app.listen(PORT, console.log(`Server started on port ${PORT}`));

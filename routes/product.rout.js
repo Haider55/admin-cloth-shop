@@ -14,6 +14,12 @@ router.get("/update/:id", product_controller.update);
 router.post("/update/:id", product_controller.updateProduct);
 router.get("/delete/:id",  product_controller.delete);
 
+//categories > subcategories
+router.get('/categories/:category/:subcategory', product_controller.subcategories);
+
+//subcategories
+router.get('/tags/:subcategory', product_controller.tags)
+
 router.get("/report/all", product_controller.allReport);
 
 module.exports = router;
