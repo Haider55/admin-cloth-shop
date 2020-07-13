@@ -112,7 +112,29 @@
 									<div class="controls">
 										<input type="text"id="description" name="description" placeholder="Enter your description" class="input-xlarge"value="<%=typeof product.description != 'undefined'?product.description : ''%>">
 									</div>
-								</div>			
+								</div>	
+								
+									
+								<div class="form-group">
+									<label for="sel1">Select Product Category:</label>
+									<select class="form-control" id="sel1" name = "category" required = "">
+									  <option value = "men">Men </option>
+									  <option value = "women">Women</option>
+									  <option value = "kids">Kids</option>
+									  <option value = "sports">Sports</option>
+									</select>
+								</div>	
+
+
+								<!-- start subcategory tags -->
+								<div class="bs-example">
+									<label for ="#tags">Type a tag, then press enter</label>
+									<select multiple data-role="tagsinput" id = "tags" name = "subcategory">
+										<%product.subcategory.forEach( (subcategory) => { %>
+											<option value = "<%=subcategory%>">value = <%=subcategory%> </option>
+										<% })%>
+									</select>
+								</div>
 														    					                            
 								
 								<hr>

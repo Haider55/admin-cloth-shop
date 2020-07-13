@@ -60,7 +60,9 @@ exports.create = (req, res) => {
       title: req.body.title,
       imageURL: filename,
       price: req.body.price,
-      description: req.body.description
+      description: req.body.description,
+      category: req.body.category,
+      subcategory: req.body.subcategory
     });
 
     product.save(function(err) {

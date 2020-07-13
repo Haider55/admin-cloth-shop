@@ -8,6 +8,7 @@ const {
   ensureAdminAuthenticated,
   forwardAdminAuthenticated
 } = require("../config/auth");
+const Product = require('../models/product.model')
 
 // Welcome Page
 router.get("/", forwardEmployeeAuthenticated, (req, res) => res.render("welcome"));
