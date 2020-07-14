@@ -32,6 +32,18 @@ router.get("/admin/login", forwardAdminAuthenticated, (req, res) => res.render("
 router.get("/admin/register", forwardAdminAuthenticated, (req, res) => res.render("admin/register"));
 router.get("/admin/add", forwardAdminAuthenticated, (req, res) => res.render("admin/productAdd"));
 router.get("/admin/employee", forwardAdminAuthenticated, (req, res) => res.render("admin/employeeAdd"));
+router.get('/product_detail/:id', forwardAdminAuthenticated, (req, res) => {
+  Product.findById(req.params.id, function(err, product) {
+    if (err) {
+      return res.status(400).json({
+        err: `Oops something went wrong! Cannont find product with ${req.params.id}.`
+      });
+    }
+    res.render('product_detail',{
+      product
+    });
+  });
+})
 router.get("/admin/dashboard", ensureAdminAuthenticated, (req, res) =>
   res.render("admin/dashboard", {
     admin: req.admin
