@@ -56,10 +56,11 @@ exports.create = (req, res) => {
     //////////////////////////////
     // Create record in DB
     //////////////////////////////
+    
     let product = new Product({
       title: req.body.title,
       imageURL: filename,
-      price: req.body.price,
+      date: req.body.datepicker,
       description: req.body.description,
       category: req.body.category,
       subcategory: req.body.subcategory

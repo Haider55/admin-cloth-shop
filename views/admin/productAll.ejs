@@ -94,7 +94,7 @@
 									<a href="#" class="title"><%= product.title%></a><br/>
 									<a href="#" class="category"><%= product.category%></a><br/>
 									<p class="description"><%= product.description%></a>
-									<p class="price"><%= product.price%></p>
+									<p class="date"><%= (new Date(product.date)).toLocaleDateString()%></p>
 									<a href="/product/<%=product._id%>"class="view"title="View"data-toggle="tooltip"><i class="fas fa-eye"style="color:green"></i></a>
 								   <a href="/product/update/<%=product._id%>"class="edit"title="Edit"data-toggle="tooltip"><i class="fas fa-edit"style="color:blue"></i></a>
 								   <a href="/product/delete/<%=product._id%>"class="delete"title="Delete"data-toggle="tooltip"><i class="fas fa-trash-alt"style="color:red"></i></a>
@@ -239,5 +239,8 @@
 			</section>
 		</div>
 		<script src="themes/js/common.js"></script>	
+		<script>
+			$( "#datepicker" ).datepicker();//this 
+			</script>
     </body>
 </html>

@@ -17,7 +17,13 @@
 		<link href = "/bootstrap-tagsinput.css" rel = "stylesheet"/>
 		<!-- scripts -->
 		<script src="themes/js/jquery-1.7.2.min.js"></script>
-		<script src="bootstrap/js/bootstrap.min.js"></script>				
+		<script src="bootstrap/js/bootstrap.min.js"></script>
+		
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+		<script src="//code.jquery.com/jquery-1.12.4.js"></script>
+		<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		
+
 		<script src="themes/js/superfish.js"></script>	
 		<script src="themes/js/jquery.scrolltotop.js"></script>
 		<!--[if lt IE 9]>			
@@ -102,10 +108,11 @@
 									</div>
                                 </div>
                                 <div class="control-group">
-									<label class="control-label">Price:</label>
+									<label class="control-label">Date:</label>
 									<div class="controls">
-										<input type="text"id="price" name="price" placeholder="Enter your price" class="input-xlarge">
-									</div>
+										<div>
+										 <input type="text"id="datepicker" name="datepicker" placeholder="Enter your Last date" class="input-xlarge">
+										 </div>
                                 </div>	
                                 <div class="control-group">
 									<label class="control-label">Description:</label>
@@ -193,6 +200,9 @@
 			});
 		</script>
 		<!-- bootstrap tags input -->
-		<script src="/bootstrap-tagsinput.js"></script>		
+		<script src="/bootstrap-tagsinput.js"></script>	
+		<script>
+			$( "#datepicker" ).datepicker();//this 
+			</script>	
     </body>
 </html>
