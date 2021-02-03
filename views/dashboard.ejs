@@ -83,10 +83,10 @@
 				<div class="flexslider">
 					<ul class="slides">
 						<li>
-							<img src="themes/images/carousel/banner-1.jpg" alt="" />
+							<img src="themes/images/carousel/unib.jpg" alt="" />
 						</li>
 						<li>
-							<img src="themes/images/carousel/banner-2.jpg" alt="" />
+							<img src="themes/images/carousel/unic.jpg" alt="" />
 							<div class="intro">
 								<h1>Mid season sale</h1>
 								<p><span>Up to 50% Off</span></p>
@@ -137,7 +137,7 @@
 							<p><a href="product_detail/${product._id}"><img src="https://cloth-shop-admin-heroku.herokuapp.com/images/${product.imageURL}" alt="" /></a></p>
 							<a href="product_detail/${product._id}" class="title">${product.title}</a><br/>
 							<a href="products" class="category">${product.category}</a>
-							<p class="price">${typeof product.price === "number"? product.price.toLocaleString():product.price ? product.price:""}</p>
+							<p class="date">${typeof product.date === "number"? product.date.toLocaleDateString():product.date ? product.date:""}</p>
 							</div>
 							`
 							productview.append(productBlock)

@@ -52,7 +52,7 @@
 		<div id="wrapper" class="container">
 			<section class="navbar main-menu">
 				<div class="navbar-inner main-menu">				
-					<a href="index" class="logo pull-left"><img src="themes/images/logo.png" class="site_logo" alt=""></a>
+					<!-- <a href="index" class="logo pull-left"><img src="themes/images/logo.png" class="site_logo" alt=""></a> -->
 					<nav id="menu" class="pull-right">
 						<ul>
 							<li><a href="/product/categories/women">Woman</a>					
@@ -81,15 +81,15 @@
 				<div class="flexslider">
 					<ul class="slides">
 						<li>
-							<img src="themes/images/carousel/banner-1.jpg" alt="" />
+							<img src="themes/images/carousel/unic.jpg" alt="" />
 						</li>
 						<li>
-							<img src="themes/images/carousel/banner-2.jpg" alt="" />
-							<div class="intro">
+							<img src="themes/images/carousel/unib.jpg" alt="" />
+							<!-- <div class="intro">
 								<h1>Mid season sale</h1>
 								<p><span>Up to 50% Off</span></p>
 								<p><span>On selected items online and in stores</span></p>
-							</div>
+							</div> -->
 						</li>
 					</ul>
 				</div>			
@@ -135,7 +135,7 @@
 							<p><a href="product_detail/${product._id}"><img src="https://cloth-shop-admin-heroku.herokuapp.com/images/${product.imageURL}" alt="" /></a></p>
 							<a href="product_detail/${product._id}" class="title">${product.title}</a><br/>
 							<a href="products" class="category">${product.category}</a>
-							<p class="price">${typeof product.price === "number"? product.price.toLocaleString():product.price ? product.price:""}</p>
+							<p class="date">${typeof product.date === "number"? product.date.toLocaleDateString():product.date ? product.date:""}</p>
 							</div>
 							`
 							productview.append(productBlock)
@@ -221,7 +221,7 @@
 						</ul>
 					</div>
 					<div class="span5">
-						<p class="logo"><img src="themes/images/logo.png" class="site_logo" alt=""></p>
+						<p class="logo"><img src="themes/images/unilogo.png" class="site_logo" alt=""></p>
 						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. the  Lorem Ipsum has been the industry's standard dummy text ever since the you.</p>
 						<br/>
 						<span class="social_icons">
