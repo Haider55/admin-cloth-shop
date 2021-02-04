@@ -55,15 +55,15 @@
 					<!-- <a href="index" class="logo pull-left"><img src="themes/images/logo.png" class="site_logo" alt=""></a> -->
 					<nav id="menu" class="pull-right">
 						<ul>
-							<li><a href="/product/categories/women">Woman</a>					
-								<ul>
+							<li><a href="/product/categories/private">Private Sector</a>					
+								<!-- <ul>
 									<li><a href="/product/categories/women/shirt">Shirt</a></li>									
 									<li><a href="/product/categories/women/handbag">Handbags</a></li>
 									<li><a href="/product/categories/women/shoes">Shoes</a></li>									
-								</ul>
+								</ul> -->
 							</li>															
-							<li><a href="/product/categories/men">Man</a></li>			
-							<li><a href="/product/categories/sports">Sport</a>
+							<li><a href="/product/categories/pubic">Public Sector</a></li>			
+							<!-- <li><a href="/product/categories/sports">Sport</a>
 								<ul>									
 									<li><a href="/product/categories/sports/gift">Gifts and Tech</a></li>
 									<li><a href="/product/categories/sports/ties">Ties and Hats</a></li>
@@ -71,8 +71,8 @@
 								</ul>
 							</li>							
 							<li><a href="/product/categories/kids">Kids</a></li>
-							<li><a href="/products">Best Seller</a></li>
-							<li><a href="/products">Top Seller</a></li>
+							<li><a href="/products">Best Seller</a></li> -->
+							<li><a href="/product/categories/top">Top Rated Universities</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -135,7 +135,7 @@
 							<p><a href="product_detail/${product._id}"><img src="https://cloth-shop-admin-heroku.herokuapp.com/images/${product.imageURL}" alt="" /></a></p>
 							<a href="product_detail/${product._id}" class="title">${product.title}</a><br/>
 							<a href="products" class="category">${product.category}</a>
-							<p class="date">${typeof product.date === "number"? product.date.toLocaleDateString():product.date ? product.date:""}</p>
+							<p class="date">${typeof product.date === "number"? product.date.toDateString():product.date ? product.date:""}</p>
 							</div>
 							`
 							productview.append(productBlock)
@@ -144,7 +144,7 @@
 							})
 							</script>
 							
-						<div class="row feature_box">						
+						<!-- <div class="row feature_box">						
 							<div class="span4">
 								<div class="service">
 									<div class="responsive">	
@@ -172,11 +172,11 @@
 									</div>
 								</div>
 							</div>	
-						</div>		
+						</div>		 -->
 					</div>				
 				</div>
 			</section>
-			<section class="our_client">
+			<!-- <section class="our_client">
 				<h4 class="title"><span class="text">Manufactures</span></h4>
 				<div class="row">					
 					<div class="span2">
@@ -198,7 +198,7 @@
 						<a href="#"><img alt="" src="themes/images/clients/4.png"></a>
 					</div>
 				</div>
-			</section>
+			</section> -->
 			<section id="footer-bar">
 				<div class="row">
 					<div class="span3">

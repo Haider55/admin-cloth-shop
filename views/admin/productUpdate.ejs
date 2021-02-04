@@ -15,6 +15,10 @@
 		<link href="themes/css/flexslider.css" rel="stylesheet"/>
 		<link href="themes/css/main.css" rel="stylesheet"/>
 
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+		<script src="//code.jquery.com/jquery-1.12.4.js"></script>
+		<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
 		<!-- scripts -->
 		<script src="themes/js/jquery-1.7.2.min.js"></script>
 		<script src="bootstrap/js/bootstrap.min.js"></script>				
@@ -102,7 +106,7 @@
 									</div>
                                 </div>
                                 <div class="control-group">
-									<label class="control-label">Price:</label>
+									<label class="control-label">Last Date:</label>
 									<div class="controls">
 										<input type="text"id="date" name="date" placeholder="Enter your Last Date" class="input-xlarge"value="<%=typeof product.date != 'undefined'?product.date : ''%>">
 									</div>
@@ -193,6 +197,9 @@
 					document.location.href = "checkout";
 				})
 			});
-		</script>		
+		</script>	
+			<script>
+				$( "#datepicker" ).datepicker();//this 
+				</script>		
     </body>
 </html>

@@ -6,7 +6,7 @@ let ProductSchema = new Schema(
     
     title: { type: String, required: true },
     imageURL: { type: String, required: false },
-    date: { type: Date, required: true },
+    date: { type: String, required: true },
     description: { type: String, required: true },
     category: {type: String, required: true},
    subcategory: []
